@@ -7,7 +7,8 @@ import { Component } from '@angular/core'
     <div>
         <h1> Angular Upcoming Event</h1>
         <hr/>
-        <event-thumbnail [firstEvent]="eventData" (clickEvent) = "ClickInparent($event)"></event-thumbnail>
+        <event-thumbnail #thumbnailVariable [firstEvent]="eventData" (clickEvent) = "ClickInparent($event)"></event-thumbnail>
+        <h5>{{thumbnailVariable.checkMe}}</h5>
     </div>`
 })
 export class EventListComponent {
@@ -19,9 +20,9 @@ export class EventListComponent {
             price: 12,
             imageUrl : '/assets/Images/angularconnect-shield.png',
             location : {
-                address:'My address',
-                city:'city',
-                country:'country'
+                address:'Hi-Tech',
+                city:'Hyderabad',
+                country:'India'
             }            
         };
     ClickInparent = function(data)
