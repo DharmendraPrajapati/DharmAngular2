@@ -1,0 +1,20 @@
+<div class="well howerwell thumbnail">
+    <h3> {{firstEvent?.name}} </h3>
+    <div> Date : {{firstEvent?.date}} </div>
+    <div [ngSwitch]="firstEvent?.time"> 
+        Time : {{firstEvent?.time}} 
+        <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
+        <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
+        <span *ngSwitchDefault>(Normal Start)</span>
+    </div>    
+    <div> Price : \${{firstEvent?.price}} </div>
+    <div> <a href="ClickMe(firstEvent.id)">Sessions</a> </div>
+    <div [hidden]="!firstEvent?.location"> Location :
+        <span> {{firstEvent?.location?.address}} </span>                        
+        <span class="pad-left"> {{firstEvent?.location?.city}} , {{firstEvent?.location?.country}} </span>
+    </div>
+    <div *ngIf="firstEvent.onlineUrl">
+        Online Url : {{firstEvent.onlineUrl}}                    
+    </div>                  
+    <button class="btn btn-primary" (click)="ClickMe(firstEvent.id)">Join</button>
+</div>
