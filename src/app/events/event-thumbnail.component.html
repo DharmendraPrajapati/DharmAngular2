@@ -1,7 +1,12 @@
 <div class="well howerwell thumbnail">
     <h3> {{firstEvent?.name}} </h3>
     <div> Date : {{firstEvent?.date}} </div>
-    <div [ngSwitch]="firstEvent?.time"> 
+    <!-- <div [class.green] ="firstEvent?.time ==='8:00 am'" [ngSwitch]="firstEvent?.time"> 
+        This type of class binding is good for single class but if we need to apply multiple class on expression then use [ngClass], shown in div below
+        So [ngClass] binding expect an object where object keys are the class that we want to apply. here we can call a function also which can return me this object.
+        [ngClass] can accept object, single string which have all class with space and a array which will have all classes as string. See the method.
+     -->
+    <div [ngClass] ="getTimeClass(firstEvent)" [ngSwitch]="firstEvent?.time"> 
         Time : {{firstEvent?.time}} 
         <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
         <span *ngSwitchCase="'10:00 am'">(Late Start)</span>

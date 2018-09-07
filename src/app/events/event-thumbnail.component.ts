@@ -4,6 +4,8 @@ import { Component, Input, Output, EventEmitter} from '@angular/core'
     selector : 'event-thumbnail',
     templateUrl : './event-thumbnail.component.html',
     styles : [` 
+    .green {color : green !important;}
+    .bold {font-weight : bold;}
     .pad-left {margin-left:10px;} 
     .well div {color: #bbb;}
     .thumbnail {min-height:210px;}
@@ -17,5 +19,13 @@ export class EventThumbnailComponent{
     private ClickMe(Id:number):void {
         console.log(Id);
         this.clickEvent.emit(Id);
+    }
+    private getTimeClass(firstEvent)
+    {
+        var expFlag = firstEvent.time ==='8:00 am';
+        // here we can return object or string with spaces and array of classes.
+        // return "green bold";
+        // return ['green','bold'];
+        return {green:expFlag,bold:expFlag};        
     }
 }
