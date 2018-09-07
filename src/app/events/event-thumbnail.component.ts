@@ -28,4 +28,11 @@ export class EventThumbnailComponent{
         // return ['green','bold'];
         return {green:expFlag,bold:expFlag};        
     }
+    private getPriceStyle(firstEvent)
+    {
+        if(firstEvent && firstEvent.time === '8:00 am'){
+        return {color:'red','font-weight':'bold'};
+        }
+        return {color:'#bbb','font-weight':'normal'};
+    }
 }

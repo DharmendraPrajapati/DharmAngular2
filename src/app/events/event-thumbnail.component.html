@@ -4,15 +4,23 @@
     <!-- <div [class.green] ="firstEvent?.time ==='8:00 am'" [ngSwitch]="firstEvent?.time"> 
         This type of class binding is good for single class but if we need to apply multiple class on expression then use [ngClass], shown in div below
         So [ngClass] binding expect an object where object keys are the class that we want to apply. here we can call a function also which can return me this object.
-        [ngClass] can accept object, single string which have all class with space and a array which will have all classes as string. See the method.
+        [ngClass] can accept object, single string which have all class with space and a array which will have all classes as string. See the method getTimeClass().
      -->
     <div [ngClass] ="getTimeClass(firstEvent)" [ngSwitch]="firstEvent?.time"> 
         Time : {{firstEvent?.time}} 
         <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
         <span *ngSwitchCase="'10:00 am'">(Late Start)</span>
         <span *ngSwitchDefault>(Normal Start)</span>
-    </div>    
-    <div> Price : \${{firstEvent?.price}} </div>
+    </div>
+    <!--
+        So apply css also done by style class. see below same as class
+
+        <div [style.color]="firstEvent?.time === '8:00 am' ? 'red':'#bbb'">  this is for single style.
+        <div [ngStyle]="{color:firstEvent?.time === '8:00 am' ? 'red':'#bbb', 'font-weight' :firstEvent?.time === '8:00 am' ? 'bold':'normal'}"> 
+    -->
+    <div [ngStyle]="getPriceStyle(firstEvent)"> 
+        Price : \${{firstEvent?.price}} 
+    </div>
     <div> <a href="ClickMe(firstEvent.id)">Sessions</a> </div>
     <div [hidden]="!firstEvent?.location"> Location :
         <span> {{firstEvent?.location?.address}} </span>                        
