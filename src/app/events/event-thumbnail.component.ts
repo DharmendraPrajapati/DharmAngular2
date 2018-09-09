@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter} from '@angular/core'
+import { Component, Input, Output, EventEmitter, OnInit} from '@angular/core'
+import { ToastrService } from '../Services/toasrt.service';
 
 @Component({
     selector : 'event-thumbnail',
@@ -11,14 +12,20 @@ import { Component, Input, Output, EventEmitter} from '@angular/core'
     .thumbnail {min-height:210px;}
     `]
 })
-export class EventThumbnailComponent{
+export class EventThumbnailComponent implements OnInit{
+    constructor(private toastrService:ToastrService){
+
+    }
+    ngOnInit(){
+        this.toastrService = this.toastrService;
+    }
+
     @Input() firstEvent:any;
     @Output() clickEvent = new EventEmitter();
 
     private checkMe:string = "access local variable";
     private ClickMe(Id:number):void {
-        console.log(Id);
-        this.clickEvent.emit(Id);
+        this.toastrService.info(Id.toString(),"Info");
     }
     private getTimeClass(firstEvent)
     {

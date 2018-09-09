@@ -18,13 +18,15 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
+      "styles": [        
         "../node_modules/ngf-bootstrap/dist/bootstrap.min.css",
-        "styles.css"
+        "styles.css",
+        "../node_modules/toastr/build/toastr.min.css"
       ],
-      "scripts": [
+      "scripts": [        
         "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.js",
+        "../node_modules/toastr/build/toastr.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
