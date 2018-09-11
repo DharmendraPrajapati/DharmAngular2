@@ -1,4 +1,4 @@
-<div class="well howerwell thumbnail">
+<div [routerLink]="['/events',firstEvent.id]" class="well howerwell thumbnail">
     <h3> {{firstEvent?.name}} </h3>
     <div> Date : {{firstEvent?.date}} </div>
     <!-- <div [class.green] ="firstEvent?.time ==='8:00 am'" [ngSwitch]="firstEvent?.time"> 
